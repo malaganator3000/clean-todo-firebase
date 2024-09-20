@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "outDir": "./dist",  // La salida para el servidor
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/server/**/*"], // Solo incluir el servidor
+  "exclude": ["node_modules", "src/client"] 
+  }

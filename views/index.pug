@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= titlePage
+    link(rel="stylesheet", href="/css/tailwind.css") 
+    script(src="/js/bundle.js", defer)
+    //- Aquí pasamos la variable page al cliente para la rehidratación
+    script.
+      window.__PAGE__ = "#{page}";
+      window.__PARAMS__ = "#{params}";
+      window.__DATA__ = !{data};
+  body
+    //- React renderizado por el servidor
+    div(id="root")!= appHTML
