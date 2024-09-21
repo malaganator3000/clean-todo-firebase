@@ -1,6 +1,6 @@
 {
-    "watch": ["src/server"],
-    "ext": "ts",
-    "ignore": ["src/client", "node_modules"],
-    "exec": "ts-node src/server/index.ts"
-  }
+  "watch": ["src/server", "src/client"],
+  "ext": "ts,tsx",
+  "ignore": ["node_modules"],
+  "exec": "npm run start"
+}

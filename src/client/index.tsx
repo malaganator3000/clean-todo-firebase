@@ -1,13 +1,12 @@
-import React from "react";
-import { hydrateRoot } from "react-dom/client";
-import {App} from "./App"
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-if (typeof window !== "undefined") {
-  const root = document.getElementById("root");
-  if (root) {
-    const page =(window as any).__PAGE__
-    const params = (window as any).__PARAMS__
-    const data = (window as any).__DATA__
-    hydrateRoot(root, <App page={page} params={params} data={data}/>);
-  }
-}
+import routes from "./routes";
+
+let router = createBrowserRouter(routes);
+
+ReactDOM.hydrateRoot(
+  document.getElementById("root") as HTMLElement,
+  <RouterProvider router={router} />
+);

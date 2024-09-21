@@ -1,5 +1,5 @@
 {
-    "compilerOptions": {
+  "compilerOptions": {
     "target": "ESNext",
     "module": "commonjs",
     "strict": true,
@@ -7,9 +7,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "outDir": "./dist",  // La salida para el servidor
+    "outDir": "./dist/client", // La salida para el cliente
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/server/**/*"], // Solo incluir el servidor
-  "exclude": ["node_modules", "src/client"] 
-  }
+  "include": ["src/client/**/*", "src/server/**/*"],
+  "exclude": ["node_modules"]
+}

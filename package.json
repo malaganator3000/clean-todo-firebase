@@ -2,9 +2,11 @@
   "scripts": {
     "build:client": "node esbuild.config.js",
     "build:css": "postcss src/client/styles/tailwind.css -o public/css/tailwind.css",
-    "build:server": "tsc",
+    "build:server": "tsc -p tsconfig.server.json",
     "build": "npm run build:css && npm run build:client && npm run build:server",
-    "dev": "npm run build && nodemon --watch src/server --exec ts-node src/server/index.ts"
+    "dev": "nodemon",
+    "dev:server":"ts-node src/server/index.ts",
+    "start":"npm run build:client && npm run build:css && npm run dev:server"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
@@ -15,6 +17,7 @@
     "pug": "^3.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
     "tailwindcss": "^3.4.12"
   },
   "devDependencies": {
