@@ -1,20 +1,32 @@
 import React from "react";
 import { RouteObject, useLoaderData } from "react-router-dom";
-import { Task, Home } from "./pages/home";
 import { Tasks } from "./pages/tasks";
-
-const routes:RouteObject[] = [
+import { DashboardLayout } from "./layouts/dashboard.layout";
+import { ErrorPage } from "./pages/not-found";
+import { getTodosLoader } from "./core/loaders/getTodos";
+const routes: RouteObject[] = [
   {
     path: "/",
-    async loader() {
-      let response = await fetch("http://localhost:3000/tasks");
-      let tasks = (await response.json()) as Task[];
-      return tasks
-    },
-    Component() {
-      let data = useLoaderData() as Task[];
-      return <Tasks tasks={data} />;
-    },
+    element: <DashboardLayout title="Clean Todo Firebase" />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "tasks",
+        loader: async () => {
+          try {
+            const todos = await getTodosLoader();
+            return { todos };
+          } catch (error) {
+            console.error(error);
+            return { todos: [] };
+          }
+        },
+        Component: () => {
+          const { todos } = useLoaderData() as any;
+          return <Tasks tasks={todos} />;
+        },
+      },
+    ],
   },
 ];
 

@@ -2,5 +2,5 @@
   "watch": ["src/server", "src/client"],
   "ext": "ts,tsx",
   "ignore": ["node_modules"],
-  "exec": "npm run start"
+  "exec": "npm run dev:all"
 }

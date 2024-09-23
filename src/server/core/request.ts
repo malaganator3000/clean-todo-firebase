@@ -6,7 +6,6 @@ export function createFetchRequest(
   let origin = `${req.protocol}://${req.get("host")}`;
   // Note: This had to take originalUrl into account for presumably vite's proxying
   let url = new URL(req.originalUrl || req.url, origin);
-
   let controller = new AbortController();
   res.on("close", () => controller.abort());
 

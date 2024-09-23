@@ -10,6 +10,6 @@
     "outDir": "./dist/client", // La salida para el cliente
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/client/**/*", "src/server/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
