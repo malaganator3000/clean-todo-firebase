@@ -1,40 +1,53 @@
 # clean-todo-firebase
 
-**clean-todo-firebase** es un proyecto de gestión de tareas (to-do) que utiliza Clean Architecture para asegurar un diseño escalable y mantenible. Esta aplicación web se basa en **React** para la interfaz de usuario, **Express** para el servidor, y **Firebase** como backend para la gestión de datos.
+**clean-todo-firebase** is a task management (to-do) project that uses Clean Architecture to ensure a scalable and maintainable design. This web application is based on **React** for the user interface, **Express** for the server, and **Firebase** as the backend for data management.
 
-## Características
+## Features
 
-- **Arquitectura Limpia**: Implementa los principios de Clean Architecture para separar las preocupaciones y facilitar la evolución del código.
-- **Gestión de Tareas**: Permite a los usuarios agregar, editar, eliminar y listar tareas de manera eficiente.
-- **Firebase como Backend**: Utiliza Firebase Firestore para el almacenamiento de datos, ofreciendo una integración rápida y robusta con servicios en la nube.
-- **SSR y Rehidratación**: Utiliza el renderizado del lado del servidor (SSR) para mejorar la experiencia del usuario y la optimización SEO, con rehidratación de componentes en el cliente.
-- **Interfaz Amigable**: Desarrollada con **Tailwind CSS** para proporcionar una experiencia de usuario moderna y responsiva.
+- **Clean Architecture**: Implements Clean Architecture principles to separate concerns and facilitate code evolution.
+- **Task Management**: Allows users to efficiently add, edit, delete, and list tasks.
+- **Firebase as Backend**: Uses Firebase Firestore for data storage, providing fast and robust integration with cloud services.
+- **SSR and Rehydration**: Utilizes server-side rendering (SSR) to enhance user experience and SEO optimization, with client-side component rehydration.
+- **User-Friendly Interface**: Developed with **Tailwind CSS** to provide a modern and responsive user experience.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 - **Frontend**: React, Tailwind CSS
 - **Backend**: Express, TypeScript
-- **Base de Datos**: Firebase Firestore
+- **Database**: Firebase Firestore
 
-## Instalación
+## Installation
 
-Para instalar y ejecutar el proyecto, sigue estos pasos:
+To install and run the project, follow these steps:
 
-1. Clona el repositorio.
-2. Instala las dependencias:
+1. Clone the repository.
+2. Install the dependencies:
    \`\`\`bash
    npm install
    \`\`\`
-3. Establece la variable de entorno para Firebase:
+3. Set the Firebase environment variable:
    \`\`\`bash
    export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"
    \`\`\`
-4. Asegúrate de tener configurado un método de autenticación en Firebase y una base de datos de Firestore.
-5. Compila y ejecuta el servidor:
+4. Make sure to set up an authentication method in Firebase and configure a Firestore database.
+5. Compile and run the server:
    \`\`\`bash
    npm run dev
    \`\`\`
 
-## Contribuciones
+## Missing Features
 
-Las contribuciones son bienvenidas. Si deseas colaborar, abre un problema o una solicitud de extracción.
+- **Task Pagination**: The pagination for tasks is not fully implemented yet. This feature needs to be correctly integrated to handle multiple pages of tasks and navigate between them.
+- **Task Detail Page**: The functionality to open a task on a separate page is not yet available. Each task should be clickable and open in its own dedicated view to allow better task management and display detailed information.
+- **Correct Path Implementation**: The project currently uses relative paths for importing elements, such as:
+  \`\`\`typescript
+  import { Todo } from "../../../core/entities/Todo";
+  \`\`\`
+  Ideally, paths should be implemented in a more organized and clean way using aliases, like this:
+  \`\`\`typescript
+  import { Todo } from "@core/entities/Todo";
+  \`\`\`
+  This will make imports clearer and more maintainable as the project scales.
+## Contributions
+
+Contributions are welcome. If you would like to collaborate, feel free to open an issue or submit a pull request.
